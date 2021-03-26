@@ -1,0 +1,162 @@
+.main-container{
+    padding: 10px;
+    background-color: #f2f2f2;
+    .loading-cntr{
+        text-align: center;
+        padding-top: 70px;
+        img{
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .container{
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+    .clearfix::after{
+        display: table;
+        content: "";
+        clear: both;
+    }
+    .spacex-details-cntr{
+        width: 100%;
+        .filter-section, .card-section{
+            float: left;
+            .inner-grid{
+                background: #fff;
+                padding: 15px;
+                border-radius: 5px;
+            }
+        }
+        .filter-section{
+            width: 20%;
+            padding-right: 8px;
+            .filter-heading{
+                font-size: 16px;
+                margin-bottom: 11px;
+            }
+            .label-heading{
+                text-align: center;
+                hr{
+                    width: 80%;
+                }
+            }
+            .year-laber-sec{
+                width: 100%;
+                margin-bottom: 30px;
+                .label-sec{
+                    float: left;
+                    width: 50%;
+                    margin-bottom: 10px;
+                    .label-layout{
+                        background-color: #bbe3ab;
+                        border-radius: 3px;
+                        width: 80%;
+                        text-align: center;
+                        &.active{
+                            background-color: #3bd43b;
+                        }
+                        button{
+                            width: 100%;
+                            padding: 5px 14px;
+                            background: transparent;
+                            border: 0;
+                            cursor: pointer;
+                            outline: none;
+                        }
+                    }
+                    &:nth-child(even) {
+                        .label-layout{
+                            float: right;
+                        }
+                      }
+                }
+            }
+        }
+        .card-section{
+            width: 80%;
+            .inner-grid{
+                height: 320px;
+            }
+            .card{
+                width: 25%;
+                float: left;
+                padding: 0 8px;
+                margin-bottom:15px;
+                .img-cntr{
+                    text-align: center;
+                    img{
+                        margin-bottom: 10px;
+                    }
+                }
+                .card-heading{
+                    color: #3939d6;
+                    font-weight: bold;
+                    margin-bottom: 12px;
+                }
+                .label-heading{
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    ul{
+                        padding-left: 28px;
+                        margin: 5px 0;
+                        li{
+                            color: #3939d6;
+                            font-weight: normal;
+                        }
+                    }
+                    .label-value{
+                        color: #3939d6;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Tablate View
+@media screen and (min-width: 700px) and (max-width: 1024px) {
+    .main-container{
+        .spacex-details-cntr{
+            .filter-section{
+                width: 32%;
+
+            }
+            .card-section{
+                width: 68%;
+                .inner-grid{
+                    height: 300px;
+                }
+                .card{
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+// Mobile View
+@media screen and (min-width: 320px) and (max-width: 700px){
+    .main-container{
+        .loading-cntr{
+            padding-top: 10px;
+        }
+        .spacex-details-cntr{
+            .filter-section{
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            .card-section{
+                width: 100%;
+                .inner-grid{
+                    height: auto;
+                }
+                .card{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+    

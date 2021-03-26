@@ -1,0 +1,115 @@
+
+<div class="main-container">
+    <!-- Main Heading -->
+    <div class="container">
+        <div class="main-heading">
+            <h2>SpaceX Launch Programs</h2>
+        </div>
+        <!-- Main view details section -->
+        <div class="spacex-details-cntr clearfix">
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="inner-grid">
+                    <p class="filter-heading"><b>Filters</b></p>
+                    <div class="label-heading">
+                        Launch Year
+                        <hr />
+                    </div>
+                    <!-- Year labels -->
+                    <div class="year-laber-sec clearfix">
+                        <div class="label-sec" *ngFor="let year of yearsList">
+                            <div class="label-layout">
+                                <button (click)="getAllMatchedFilterItems()">{{year}}</button>
+                            </div>   
+                        </div>
+                    </div>
+                    <!-- Successful Launch -->
+                    <div class="label-heading">
+                        Successful Launch
+                        <hr />
+                    </div>
+                    <!-- Year labels -->
+                    <div class="year-laber-sec clearfix">
+                        <div class="label-sec">
+                            <div class="label-layout">
+                                <button (click)="getAllSpacexLaunchSuccessItems()">True</button>
+                            </div>   
+                        </div>
+                        <div class="label-sec">
+                            <div class="label-layout">
+                                <button >False</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Successful Landing -->
+                    <div class="label-heading">
+                        Successful Landing
+                        <hr />
+                    </div>
+                    <!-- Year labels -->
+                    <div class="year-laber-sec clearfix">
+                        <div class="label-sec">
+                            <div class="label-layout">
+                                <button (click)="getAllSpacexLandingAndLaunchSuccessItems()">True</button>
+                            </div>   
+                        </div>
+                        <div class="label-sec">
+                            <div class="label-layout">
+                                <button >False</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- card sections -->
+            <div class="card-section">
+                <ng-container *ngIf="loading">
+                    <div class="loading-cntr">
+                        <img src="https://p7.hiclipart.com/preview/506/731/805/computer-icons-footage-symbol-clip-art-icon-load-library.jpg">
+                        <p>Loading...</p>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="spacexListItems.length > 0 && !loading">
+                    <div class="card" *ngFor="let spacexItem of spacexListItems">
+                        <!-- {{spacexItem | json}} -->
+                        <div class="inner-grid">
+                            <!-- Image -->
+                            <!-- Added hard coded images becuase images are not loading from data -->
+                            <!-- <img width="100%" [src]="spacexItem.links.mission_patch" /> -->
+                            <div class="img-cntr">
+                                <img width="100%" src="https://i.pinimg.com/originals/47/ad/b9/47adb95a09f4541ef3096fc3b646edd0.jpg" />
+                            </div>
+                            <!-- Heading -->
+                            <div class="card-heading">
+                                {{spacexItem.mission_name}}
+                            </div>
+                            <!-- ID -->
+                            <div class="label-heading">
+                                <div>
+                                    <div>Mission Ids: </div>
+                                    <ul>
+                                        <li *ngFor="let mission_id of spacexItem. mission_id">
+                                            {{mission_id}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Year heading -->
+                            <div class="label-heading">
+                                <span>Launch Year: </span><span class="label-value">{{spacexItem.launch_year}}</span>
+                            </div>
+                            <!-- Successful launch -->
+                            <div class="label-heading">
+                                <span>Successful Launch: </span><span class="label-value">{{spacexItem.launch_success}}</span>
+                            </div>
+                            <!-- Successful Landing -->
+                            <div class="label-heading">
+                                <span>Successful Landing: </span><span class="label-value">{{spacexItem.launch_landing}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
